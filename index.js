@@ -1,14 +1,34 @@
 
+let showArray = [];
+const searchBar = document.getElementById("search")
+searchBar.addEventListener('keyup', (e)=>{
+    const searchString = e.target.value.toLowerCase();
+   const filteredTitle= showArray.filter((title) => {
+    return(
+        title.toLowerCase().includes(searchString) 
+    );
+    });
+    console.log(filteredTitle)
+    filteredTitle.forEach((item) => {
+        let liList = document.createElement("li");
+        liList.innerText = item;
+        list.appendChild(liList);
+
+    })
+});
+
 
 
 function getShows(){
    // const ul = document.getElementById('list')
 
+   
+
 fetch("http://localhost:3000/shows")
   .then(res => res.json())
   .then(data => {
 
-  const showArray = data.map(a => a.title);
+ showArray = data.map(a => a.title);
 
  
   
@@ -19,30 +39,36 @@ fetch("http://localhost:3000/shows")
     list.appendChild(liList);
 
    
-  })
+  })})
 
-  
+
+
+
+// store name elements in array-like object
 
   
    
-  }) }
+}
 
+  document.addEventListener('DOMContentLoaded', function() {
+    getShows(); 
+  
+     
+  
+     
+  
+  })
+
+ 
  
 
 
-document.addEventListener('DOMContentLoaded', function() {
-   getShows(); 
 
-   
-
-   
-
-})
 
  
 const list = document.getElementById("list");
 const queue = document.getElementById("queued");
-const li = list.querySelectorAll("li");
+//const li = list.querySelectorAll("li");
 
 list.addEventListener("click", (ev) => {
     const EL_LI = ev.target.closest("li");
@@ -56,10 +82,4 @@ list.addEventListener("click", (ev) => {
 
 
 
-    // data is an array of object, 
-    // iterate over it and create an in-memory CSV
-    // or verify if Plotly.d3 can be fed directly this array
-
-
-// code here
 

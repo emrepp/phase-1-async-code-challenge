@@ -10,15 +10,20 @@ fetch("http://localhost:3000/shows")
 
   const showArray = data.map(a => a.title);
 
+ 
   
-  let list = document.getElementById("list");
   
   showArray.forEach((item)=>{
-    let li = document.createElement("li");
-    li.innerText = item;
-    list.appendChild(li);
+    let liList = document.createElement("li");
+    liList.innerText = item;
+    list.appendChild(liList);
+
+   
   })
 
+  
+
+  
    
   }) }
 
@@ -30,7 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
 
+   
+
 })
+
+ 
+const list = document.getElementById("list");
+const queue = document.getElementById("queued");
+const li = list.querySelectorAll("li");
+
+list.addEventListener("click", (ev) => {
+    const EL_LI = ev.target.closest("li");
+    queue.append(EL_LI);
+  });
 
 
 

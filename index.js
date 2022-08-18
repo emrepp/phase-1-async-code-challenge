@@ -49,6 +49,10 @@ list.addEventListener("click", (ev) => {
     queue.append(EL_LI);
   });
 
+  queue.addEventListener("click", (ev) => {
+    const EL_LI = ev.target.closest("li");
+    list.append(EL_LI);
+  });
 
 
 

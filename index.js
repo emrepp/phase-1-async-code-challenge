@@ -1,11 +1,18 @@
 
 let showArray = [];
+const list = document.getElementById("list");
+const queue = document.getElementById("queued");
+
 const searchBar = document.getElementById("search")
 searchBar.addEventListener('keyup', (e)=>{
+    list.innerHTML='';
     const searchString = e.target.value.toLowerCase();
+
    const filteredTitle= showArray.filter((title) => {
     return(
         title.toLowerCase().includes(searchString) 
+
+
     );
     });
     console.log(filteredTitle)
@@ -20,7 +27,7 @@ searchBar.addEventListener('keyup', (e)=>{
 
 
 function getShows(){
-   // const ul = document.getElementById('list')
+   // 
 
    
 
@@ -66,8 +73,7 @@ fetch("http://localhost:3000/shows")
 
 
  
-const list = document.getElementById("list");
-const queue = document.getElementById("queued");
+
 //const li = list.querySelectorAll("li");
 
 list.addEventListener("click", (ev) => {

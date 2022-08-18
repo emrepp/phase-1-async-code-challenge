@@ -26,19 +26,17 @@ searchBar.addEventListener('keyup', (e)=>{
 
 
 
+
+
+
 function getShows(){
-   // 
-
    
-
 fetch("http://localhost:3000/shows")
   .then(res => res.json())
   .then(data => {
 
  showArray = data.map(a => a.title);
 
- 
-  
   
   showArray.forEach((item)=>{
     let liList = document.createElement("li");
@@ -48,33 +46,13 @@ fetch("http://localhost:3000/shows")
    
   })})
 
-
-
-
-// store name elements in array-like object
-
-  
    
 }
 
   document.addEventListener('DOMContentLoaded', function() {
-    getShows(); 
-  
-     
-  
-     
+    getShows();    
   
   })
-
- 
- 
-
-
-
-
- 
-
-//const li = list.querySelectorAll("li");
 
 list.addEventListener("click", (ev) => {
     const EL_LI = ev.target.closest("li");
